@@ -1,0 +1,43 @@
+﻿@model prestamos
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdPrestamo)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdLibro, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdLibro, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdLibro)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdLibro, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdUsuario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdUsuario)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecPrestamo, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.FecPrestamo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FecPrestamo)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecDevolucion, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.FecDevolucion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FecDevolucion)
+    </div>
+
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary mb-3" value="Save" />
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Retornar al Index", "Index")
+</div>

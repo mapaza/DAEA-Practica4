@@ -1,0 +1,62 @@
+﻿@model IEnumerable<PR4.prestamos>
+@{
+    ViewBag.Title = "Index";
+}
+
+<nav style="background-color: #21BF73; border-radius: 20px; margin-bottom:10px;" class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bolder">&nbsp;&nbsp;&nbsp;Index</a>
+        <form class="d-flex">
+            @Html.ActionLink("Nuevo Préstamo", "Create", null, new { @class = "btn btn-warning" })
+        </form>
+    </div>
+</nav>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPrestamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdLibro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecPrestamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecDevolucion)
+        </th>
+        <th>
+            Accciones
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IdPrestamo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IdLibro)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IdUsuario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FecPrestamo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FecDevolucion)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.IdPrestamo }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Detalles", "Details", new { id = item.IdLibro }, new { @class = "btn btn-secondary" })
+        @Html.ActionLink("Borrar", "Delete", new { id = item.IdPrestamo }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>
