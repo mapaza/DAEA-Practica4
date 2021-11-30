@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="practica4ModelStoreContainer" CdmEntityContainer="practica4Entities">
+    <EntitySetMapping Name="autor">
+      <EntityTypeMapping TypeName="practica4Model.autor">
+        <MappingFragment StoreEntitySet="autor">
+          <ScalarProperty Name="IdAutor" ColumnName="IdAutor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="libro">
+      <EntityTypeMapping TypeName="practica4Model.libro">
+        <MappingFragment StoreEntitySet="libro">
+          <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+          <ScalarProperty Name="IdAutor" ColumnName="IdAutor" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+          <ScalarProperty Name="NumPags" ColumnName="NumPags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prestamos">
+      <EntityTypeMapping TypeName="practica4Model.prestamos">
+        <MappingFragment StoreEntitySet="prestamos">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="FecPrestamo" ColumnName="FecPrestamo" />
+          <ScalarProperty Name="FecDevolucion" ColumnName="FecDevolucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="practica4Model.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NumUsuario" ColumnName="NumUsuario" />
+          <ScalarProperty Name="NIF" ColumnName="NIF" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

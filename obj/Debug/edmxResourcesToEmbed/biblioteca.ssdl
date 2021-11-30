@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="practica4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="autor">
+    <Key>
+      <PropertyRef Name="IdAutor" />
+    </Key>
+    <Property Name="IdAutor" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="libro">
+    <Key>
+      <PropertyRef Name="IdLibro" />
+    </Key>
+    <Property Name="IdLibro" Type="int" Nullable="false" />
+    <Property Name="IdAutor" Type="int" />
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Titulo" Type="varchar" MaxLength="100" />
+    <Property Name="ISBN" Type="varchar" MaxLength="30" />
+    <Property Name="Editorial" Type="varchar" MaxLength="60" />
+    <Property Name="NumPags" Type="int" />
+  </EntityType>
+  <EntityType Name="prestamos">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+    <Property Name="IdLibro" Type="int" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="FecPrestamo" Type="datetime" />
+    <Property Name="FecDevolucion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="NumUsuario" Type="int" />
+    <Property Name="NIF" Type="varchar" MaxLength="20" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="fk_autor">
+    <End Role="autor" Type="Self.autor" Multiplicity="0..1" />
+    <End Role="libro" Type="Self.libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autor">
+        <PropertyRef Name="IdAutor" />
+      </Principal>
+      <Dependent Role="libro">
+        <PropertyRef Name="IdAutor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_libro">
+    <End Role="libro" Type="Self.libro" Multiplicity="0..1" />
+    <End Role="prestamos" Type="Self.prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="libro">
+        <PropertyRef Name="IdLibro" />
+      </Principal>
+      <Dependent Role="prestamos">
+        <PropertyRef Name="IdLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="prestamos" Type="Self.prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="prestamos">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="practica4ModelStoreContainer">
+    <EntitySet Name="autor" EntityType="Self.autor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="libro" EntityType="Self.libro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prestamos" EntityType="Self.prestamos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_autor" Association="Self.fk_autor">
+      <End Role="autor" EntitySet="autor" />
+      <End Role="libro" EntitySet="libro" />
+    </AssociationSet>
+    <AssociationSet Name="fk_libro" Association="Self.fk_libro">
+      <End Role="libro" EntitySet="libro" />
+      <End Role="prestamos" EntitySet="prestamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario" Association="Self.fk_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="prestamos" EntitySet="prestamos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
