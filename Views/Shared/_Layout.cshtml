@@ -1,0 +1,61 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+   
+    @Styles.Render("~/Content/jquery-ui.css")
+</head>
+<body style="background-color: #F3F0D7;">
+    @*Navbar*@
+
+    <nav style="background-color: #396EB0;" class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="https://th.bing.com/th/id/R.24cca5aa0c8beb046d8e04b2a39e1857?rik=MAc52lHUiCf22w&pid=ImgRaw&r=0" height="28" alt="CoolBrand">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ">
+                    @Html.ActionLink("Biblioteca Ricardo Palma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand nav-item nav-link fw-bolder text-white" })
+                    <a href="#" class="nav-item nav-link fw-bold text-white">Préstamos</a>
+                    <a href="#" class="nav-item nav-link fw-bold text-white">Libros</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    @*Render Body*@
+    <div>
+        <div style="padding-top:20px" class="container">
+            <div class="card">
+                <div class="card-body">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
+    @Scripts.Render("~/Scripts/DatePickerReady.js")
+</body>
+</html>
+

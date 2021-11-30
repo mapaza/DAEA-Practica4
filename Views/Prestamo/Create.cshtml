@@ -1,0 +1,57 @@
+﻿@model prestamos
+@{
+    ViewBag.Title = "Create";
+}
+<nav style="background-color: #21BF73; border-radius: 20px; margin-bottom:10px;" class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bolder">&nbsp;&nbsp;&nbsp;Create</a>
+        <form class="d-flex">
+            @Html.ActionLink("Retornar al Index", "Index", null, new { @class = "btn btn-warning col-auto" })
+        </form>
+    </div>
+</nav>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<div style="padding:20px; width:600px;">
+
+    @*<div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control", @Value = ViewBag.id_generado, htmlAttributes = new { @Value = ViewBag.id_generado, disabled = true } })
+        @Html.ValidationMessageFor(model => model.IdPrestamo)
+    </div>*@
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdPrestamo)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdLibro, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdLibro, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdLibro)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdUsuario, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.IdUsuario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdUsuario)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecPrestamo, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.FecPrestamo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FecPrestamo)
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecDevolucion, new { @class = "form-label" })</span>
+        @Html.EditorFor(model => model.FecDevolucion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FecDevolucion)
+    </div>
+
+    <div class="">
+        <input type="submit" class="btn btn-primary " value="Create" />
+    </div>
+
+</div>
+
+}

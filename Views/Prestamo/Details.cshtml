@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PR4.libro>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<nav style="background-color: #21BF73; border-radius: 20px; margin-bottom:10px;" class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bolder">&nbsp;&nbsp;&nbsp;Detalles del Préstamo</a>
+        <form class="d-flex">
+            @Html.ActionLink("Retornar al Index", "Index", null, new { @class = "btn btn-warning col-auto" })
+            &nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Agregar Categoria", "Create", null, new { @class = "btn btn-primary col-auto" })
+        </form>
+    </div>
+</nav>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header fw-bolder">
+                Libro Prestado
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table id="tblLista" class="table table-bordered border-success">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">@Html.DisplayNameFor(model => model.IdLibro)</th>
+                                <th scope="col">@Html.DisplayNameFor(model => model.Codigo)</th>
+                                <th scope="col">@Html.DisplayNameFor(model => model.ISBN)</th>
+                                <th scope="col">@Html.DisplayNameFor(model => model.Titulo)</th>
+                                <th scope="col">@Html.DisplayNameFor(model => model.Editorial)</th>
+                                <th scope="col">@Html.DisplayNameFor(model => model.NumPags)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <th>@Html.DisplayFor(modelItem => product.IdLibro)</th>
+                                    <td>@Html.DisplayFor(modelItem => product.Codigo)</td>
+                                    <td>@Html.DisplayFor(modelItem => product.ISBN)</td>
+                                    <td>@Html.DisplayFor(modelItem => product.Titulo)</td>
+                                    <td>@Html.DisplayFor(modelItem => product.Editorial)</td>
+                                    <td>@Html.DisplayFor(modelItem => product.NumPags)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
