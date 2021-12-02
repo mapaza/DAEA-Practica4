@@ -42,9 +42,16 @@ namespace PR4.Controllers
             int rand_num = rd.Next(1001, 1999);
             ViewBag.id_generado = rand_num;
 
-            //Valores de Libro
-   
+            //Lista de Libros
+            List<libro> libros = contexto.libro.ToList();
+            ViewBag.listaLibros = contexto.libro.ToList();
+
+            //Lista de Usuarios
+            List<usuario> usuarios = contexto.usuario.ToList();
+            ViewBag.listaUsuarios = contexto.usuario.ToList();
+
             return View();
+
         }
 
         [HttpPost]
@@ -77,6 +84,7 @@ namespace PR4.Controllers
 
             if (categoriaEditar == null)
                 return HttpNotFound();
+
 
             return View(categoriaEditar);
         }
@@ -151,6 +159,8 @@ namespace PR4.Controllers
             //                            where p.IdLibro == id
             //                            select p;
             //return View(autorPorPrestamo.ToList());
+           
+
             var libroPorPrestamo = from p in contexto.libro
                                    orderby p.IdLibro ascending
                                    where p.IdLibro == id

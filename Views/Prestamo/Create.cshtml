@@ -11,47 +11,134 @@
     </div>
 </nav>
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
 
-<div style="padding:20px; width:600px;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div style="padding:20px; width:600px;">
 
-    @*<div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control", @Value   = ViewBag.id_generado, htmlAttributes = new { @Value = ViewBag.id_generado, disabled = true } })
-        @Html.ValidationMessageFor(model => model.IdPrestamo)
-    </div>*@
-    <div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.IdPrestamo)
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdLibro, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.IdLibro, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.IdLibro)
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdUsuario, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.IdUsuario, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.IdUsuario)
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecPrestamo, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.FecPrestamo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.FecPrestamo)
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecDevolucion, new { @class = "form-label" })</span>
-        @Html.EditorFor(model => model.FecDevolucion, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.FecDevolucion)
-    </div>
+                        @*<div class="input-group mb-3">
+            <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
+            @Html.EditorFor(model => model.IdPrestamo, new { @class = "form-control", @Value   = ViewBag.id_generado, htmlAttributes = new { @Value = ViewBag.id_generado, disabled = true } })
+            @Html.ValidationMessageFor(model => model.IdPrestamo)
+        </div>*@@using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
 
-    <div class="">
-        <input type="submit" class="btn btn-primary " value="Create" />
-    </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdPrestamo, new { @class = "form-label" })</span>
+                                @Html.EditorFor(model => model.IdPrestamo, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.id_generado } })
+                                @Html.ValidationMessageFor(model => model.IdPrestamo)
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdLibro, new { @class = "form-label" })</span>
+                                @Html.EditorFor(model => model.IdLibro, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdLibro)
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.IdUsuario, new { @class = "form-label" })</span>
+                                @Html.EditorFor(model => model.IdUsuario, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdUsuario)
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecPrestamo, new { @class = "form-label" })</span>
+                                @Html.EditorFor(model => model.FecPrestamo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FecPrestamo)
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold" id="basic-addon1">@Html.LabelFor(model => model.FecDevolucion, new { @class = "form-label" })</span>
+                                @Html.EditorFor(model => model.FecDevolucion, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FecDevolucion)
+                            </div>
 
-</div>
+                            <div class="">
+                                <input type="submit" class="btn btn-primary " value="Create" />
+                            </div>
 
-}
+
+                        }
+
+                    </div>
+
+
+
+                </div>
+                <div class="col">
+                    
+                    <nav style="background-color: #21BF73; border-radius: 20px; margin-bottom:10px;" class="navbar navbar-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand fw-bolder">&nbsp;&nbsp;&nbsp;Lista de Libros</a>
+
+                        </div>
+                    </nav>
+                    <div class="table-responsive">
+                        <table id="tblLista" class="table table-bordered border-success">
+                            <thead class="table-success">
+                                <tr>
+                                    <th scope="col">IdLibro</th>
+                                    <th scope="col">IdAutor</th>
+                                    <th scope="col">Codigo</th>
+                                    <th scope="col">ISBN</th>
+                                    <th scope="col">Titulo</th>
+                                    <th scope="col">Editorial</th>
+                                    <th scope="col">NumPags</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var libro in ViewBag.listaLibros)
+                                {
+                                    <tr>
+                                        <th>@libro.IdLibro</th>
+                                        <td>@libro.IdAutor</td>
+                                        <td>@libro.Codigo</td>
+                                        <td>@libro.Titulo</td>
+                                        <th>@libro.ISBN</th>
+                                        <td>@libro.Editorial</td>
+                                        <td>@libro.NumPags</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                        <nav style="background-color: #21BF73; border-radius: 20px; margin-bottom:10px;" class="navbar navbar-dark">
+                            <div class="container-fluid">
+                                <a class="navbar-brand fw-bolder">&nbsp;&nbsp;&nbsp;Lista de Usuarios</a>
+                                
+                            </div>
+                        </nav>
+                        <div class="table-responsive">
+                            <table id="tblLista" class="table table-bordered border-success">
+                                <thead class="table-success">
+                                    <tr>
+                                        <th scope="col">IdUsuario</th>
+                                        <th scope="col">NumUsuario</th>
+                                        <th scope="col">NIF</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Direccion</th>
+                                        <th scope="col">Telefono</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in  ViewBag.listaUsuarios)
+                                    {
+                                    <tr>
+                                        <th>@user.IdUsuario</th>
+                                        <td>@user.NumUsuario</td>
+                                        <td>@user.NIF</td>
+                                        <td>@user.Nombre</td>
+                                        <td>@user.Direccion</td>
+                                        <td>@user.Telefono</td>
+                                        
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+        </div>
+
+

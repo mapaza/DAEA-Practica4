@@ -10,7 +10,7 @@
         <form class="d-flex">
             @Html.ActionLink("Retornar al Index", "Index", null, new { @class = "btn btn-warning col-auto" })
             &nbsp;&nbsp;&nbsp;
-            @Html.ActionLink("Agregar Categoria", "Create", null, new { @class = "btn btn-primary col-auto" })
+            @Html.ActionLink("Nuevo Prestamo", "Create", null, new { @class = "btn btn-primary col-auto" })
         </form>
     </div>
 </nav>
@@ -20,7 +20,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header fw-bolder">
-                Libro Prestado
+                Libro Prestado a @ViewBag.user
             </div>
 
             <div class="card-body">

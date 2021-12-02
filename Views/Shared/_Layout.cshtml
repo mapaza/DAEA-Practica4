@@ -25,8 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ">
                     @Html.ActionLink("Biblioteca Ricardo Palma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand nav-item nav-link fw-bolder text-white" })
-                    <a href="#" class="nav-item nav-link fw-bold text-white">Préstamos</a>
-                    <a href="#" class="nav-item nav-link fw-bold text-white">Libros</a>
+                    @Html.ActionLink("Préstamos", "Index", "Prestamo", new { area = "" }, new { @class = "nav-item nav-link fw-bold text-white" })
+                    @Html.ActionLink("Nuevo Préstamo", "Create", "Prestamo", new { area = "" }, new { @class = "nav-item nav-link fw-bold text-white" })
 
                 </div>
             </div>
